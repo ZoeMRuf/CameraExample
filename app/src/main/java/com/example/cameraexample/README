@@ -1,0 +1,23 @@
+Link to instructions:
+https://medium.com/@dheerubhadoria/capturing-images-from-camera-in-android-with-jetpack-compose-a-step-by-step-guide-64cd7f52e5de
+----------------------------------------------------------------------------------------------------
+1. Edit "build.gradle (Module :app)":
+    add -> buildConfig = true
+    add -> Coil Dependency
+----------------------------------------------------------------------------------------------------
+2. Make path_provider.xml File:
+    make File in -> res > xml > path_provider.xml
+----------------------------------------------------------------------------------------------------
+3. Edit "AndroidManifest.xml":
+    add -> user-feature for Camera
+    add -> user-permission for Camera
+
+    add -> <provider></provider> for File Creation in <application></application>
+----------------------------------------------------------------------------------------------------
+4. Add Icon to res > drawable:
+    add -> camera.png ( <a href="https://www.flaticon.com/free-icons/camera">Icons by Freepik@Flaticon</a> )
+    add -> scan.png ( <a href="https://www.flaticon.com/free-icons/scan">Icons by Freepik@Flaticon</a> )
+----------------------------------------------------------------------------------------------------
+5. Edit "build.gradle (Module :app)":
+    add -> System-Bar Customization Dependency
+
