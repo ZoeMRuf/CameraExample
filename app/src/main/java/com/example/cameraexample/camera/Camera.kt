@@ -2,7 +2,9 @@ package com.example.cameraexample.camera
 
 import com.example.cameraexample.R
 import android.Manifest
+import android.app.Activity
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.widget.Toast
@@ -49,8 +51,19 @@ fun captureImageFromCamera(): Uri {
         }
     }
 
+    val permissionCheckResult =
+        ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+    if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
+        cameraLauncher.launch(uri)
+    } else {
+        permissionLauncher.launch(Manifest.permission.CAMERA)
+    }
+
+
+    /*
     RoundIconButton(
         onButtonClick = {
+            /* imported part to execute "does not have to be in a RoundIconButton"*/
             val permissionCheckResult =
                 ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
             if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
@@ -61,6 +74,7 @@ fun captureImageFromCamera(): Uri {
         },
         iconResource = R.drawable.camera
     )
+    */
 
     return capturedImageUri
 }

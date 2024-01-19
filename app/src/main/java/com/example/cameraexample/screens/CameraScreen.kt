@@ -41,6 +41,15 @@ fun CameraScreen(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Bottom
     ){
+
+        Button(onClick = {pictureCaptured = true}) {
+            if (pictureCaptured){
+                uri = captureImageFromCamera()
+                pictureCaptured = !pictureCaptured
+            }
+        }
+
+        /*
         AnimatedContent(
             targetState = pictureCaptured,
             content = { targetState ->
@@ -76,5 +85,9 @@ fun CameraScreen(){
                 )
             }
         )
+        */
+
+
+
     }
 }
